@@ -1,0 +1,65 @@
+<!doctype html>
+<html>
+  <body>
+    <main>
+    <button onclick="search();">click me to view json object</button>
+      <div id="users">
+      </div>
+    </main>
+    <style>
+    body{
+  background-color:lightgray;
+}
+button{
+  background-color:black;
+  color:white;
+  font-size:20px;
+  padding:10px;
+  position:absolute;
+  right:50%;
+  
+}
+table {
+  margin-top: 20px;
+}
+table, tr, td {
+  border: 1px solid;
+} 
+</style>
+<script>
+	
+	function search(){
+  var link="https://jsonplaceholder.typicode.com/users";
+  var xhr= new XMLHttpRequest();
+  xhr.open('GET', link, true);
+  xhr.onload=function(e){
+    var jsonResponse=xhr.response;
+    var users=JSON.parse(jsonResponse);
+    display(users);
+  }
+  
+  xhr.oneerror=function(err){
+  console.log("error"+err);
+}
+xhr.send();
+}
+function display(users){
+  var usersDiv=document.querySelector("#users");
+  usersDiv.innerHTML="";
+   var table=document.createElement("table");
+  users.forEach(function(currentUser){
+                var row=table.insertRow();
+  var nameCell=row.insertCell();
+    nameCell.innerHTML=currentUser.name;
+     var cityCell = row.insertCell();
+        cityCell.innerHTML = currentUser.address.city;
+  });
+  usersDiv.appendChild(table);
+  
+  
+  
+}
+</script>
+  </body>
+  
+</html>
