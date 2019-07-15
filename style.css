@@ -1,0 +1,31 @@
+body{
+    margin:0;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 23px;
+}
+header{
+    text-align: center;
+    background-color:goldenrod;
+    padding:2%;
+}
+header a{
+    text-decoration: none;
+    font-size: 34px;
+    padding:3%;
+}
+#Input{
+border:2px solid black;
+text-align: left;
+width:27%;
+background-color: black;
+color:white;
+}
+input[type=number], [type=color],[type=range]{
+    margin:10px;
+   padding:4px;
+}
+canvas{
+    border:2px solid black;
+    position:relative;
+    left:30%;
+}
